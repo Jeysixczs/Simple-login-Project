@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="theme-switch">
+        <label for="themeToggle">Dark Mode</label>
+        <input type="checkbox" id="themeToggle">
+    </div>
+    <div class="create-account-container">
+        <h1>Create Account</h1>
+        <form id="createAccountForm">
+            <input type="text" id="createUsername" placeholder="Username" required>
+            <input type="email" id="createEmail" placeholder="Email" required>
+            <input type="password" id="createPassword" placeholder="Password" required>
+            <input type="password" id="createConfirmPassword" placeholder="Confirm Password" required>
+            <button type="submit">Create Account</button>
+        </form>
+        <div class="back-to-login">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

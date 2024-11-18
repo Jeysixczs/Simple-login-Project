@@ -1,0 +1,339 @@
+:root {
+    --color1: #150016;
+    --color2: #29104A;
+    --color3: #522C5D;
+    --color4: #845162;
+    --color5: #E3B6B1;
+    --color6: #F7E3D8;
+    --focus-bg: #D9B3C4;
+
+    --dark-bg: linear-gradient(135deg, #000000, #0D1B2A, #1B263B, #415A77, #778DA9);
+    --light-bg: linear-gradient(135deg, #150016, #29104A, #522C5D, #845162, #E3B6B1, #F7E3D8);
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: var(--light-bg);
+    color: var(--color1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    transition: background 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background: var(--dark-bg);
+    color: var(--color6);
+}
+
+.theme-switch {
+    position: fixed; /* Changed from absolute to fixed */
+    bottom: 20px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+body.dark-mode .theme-switch {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+
+.theme-switch label {
+    margin-right: 10px;
+    color: var(--color2);
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+
+
+body.dark-mode .theme-switch label {
+    color: var(--color5);
+}
+
+.theme-switch input[type="checkbox"] {
+    width: 50px;
+    height: 26px;
+    appearance: none;
+    background: var(--color3);
+    outline: none;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.theme-switch input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    background: var(--color6);
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.theme-switch input[type="checkbox"]:checked::before {
+    transform: translateX(24px);
+}
+
+.navbar {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.navbar ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navbar ul li a {
+    color: var(--color1);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.navbar ul li a:hover {
+    background-color: var(--color4);
+    color: #fff;
+}
+
+body.dark-mode .navbar {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .navbar ul li a {
+    color: var(--color6);
+}
+
+.home-container,
+.login-container,
+.create-account-container,
+.profile-container {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+    max-width: 600px;
+    width: 90%;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 60px;
+    overflow-y: auto;
+    max-height: 80vh;
+    backdrop-filter: blur(10px);
+}
+
+body.dark-mode .home-container,
+body.dark-mode .login-container,
+body.dark-mode .create-account-container,
+body.dark-mode .profile-container {
+    background: rgba(27, 38, 59, 0.2);
+}
+
+.home-container h1,
+.login-container h1,
+.create-account-container h1,
+.profile-container h1 {
+    color: var(--color2);
+    margin-bottom: 25px;
+    transition: color 0.3s;
+}
+
+body.dark-mode .home-container h1,
+body.dark-mode .login-container h1,
+body.dark-mode .create-account-container h1,
+body.dark-mode .profile-container h1 {
+    color: var(--color5);
+}
+
+.login-container input,
+.create-account-container input,
+.profile-container input {
+    display: block;
+    width: calc(100% - 22px);
+    padding: 15px;
+    margin: 15px auto;
+    border: 1px solid var(--color4);
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s, border 0.3s;
+    background-color: var(--color6);
+    color: var(--color1);
+}
+
+body.dark-mode .login-container input,
+body.dark-mode .create-account-container input,
+body.dark-mode .profile-container input {
+    background-color: var(--color3);
+    border: 1px solid var(--color5);
+    color: var(--color6);
+}
+
+.login-container input:focus,
+.create-account-container input:focus,
+.profile-container input:focus {
+    background-color: var(--focus-bg);
+    border-color: var(--color4);
+    outline: none;
+}
+
+.login-container button,
+.create-account-container button,
+.profile-container button,
+button {
+    background-color: var(--color4);
+    color: #fff;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s;
+    margin-top: 20px;
+}
+
+.login-container input:hover,
+.login-container button:hover,
+.create-account-container input:hover,
+.create-account-container button:hover,
+.profile-container input:hover,
+.profile-container button:hover,
+button:hover {
+    transform: scale(1.05);
+}
+
+.login-container button:hover,
+.create-account-container button:hover,
+.profile-container button:hover,
+button:hover {
+    background-color: var(--color2);
+}
+
+body.dark-mode .login-container button,
+body.dark-mode .create-account-container button,
+body.dark-mode .profile-container button,
+body.dark-mode button {
+    background-color: var(--color5);
+    color: var(--color1);
+}
+
+.create-account,
+.back-to-login {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.create-account a,
+.back-to-login a {
+    color: var(--color2);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body.dark-mode .create-account a,
+body.dark-mode .back-to-login a {
+    color: var(--color5);
+}
+
+.create-account a:hover,
+.back-to-login a:hover {
+    text-decoration: underline;
+}
+
+.profile-picture {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.profile-picture img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid var(--color4);
+    transition: border-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode .profile-picture img {
+    border: 3px solid var(--color5);
+}
+
+.profile-picture img:hover {
+    transform: scale(1.05);
+    border-color: var(--focus-bg);
+}
+
+.profile-details {
+    text-align: center;
+    color: var(--color2);
+    transition: color 0.3s;
+}
+
+body.dark-mode .profile-details {
+    color: var(--color5);
+}
+
+.profile-details h2 {
+    margin: 10px 0;
+    font-size: 22px;
+    transition: color 0.3s;
+}
+
+body.dark-mode .profile-details h2 {
+    color: var(--color5);
+}
+
+.profile-details p {
+    margin: 5px 0;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+body.dark-mode .profile-details p {
+    color: var(--color6);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
